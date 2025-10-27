@@ -1,0 +1,149 @@
+<div class="content">
+  <div class="container mt-4">
+    <h3 class="mb-3">Register Form</h3>
+
+    <form [formGroup]="registerForm" (ngSubmit)="submitForm()">
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label>Name</label>
+          <input formControlName="name" class="form-control" placeholder="Enter name">
+          @if (registerForm.get('name')?.invalid && registerForm.get('name')?.touched) {
+          <span class="text-danger">
+            Name is required.</span>
+          }
+
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label>Location</label>
+          <input formControlName="location" class="form-control" placeholder="Enter location">
+          @if (registerForm.get('location')?.invalid && registerForm.get('location')?.touched) {
+          <span class="text-danger">
+            LOCATION is required.</span>
+          }
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label>State</label>
+          <input formControlName="state" class="form-control" placeholder="Enter state">
+          @if (registerForm.get('state')?.invalid && registerForm.get('state')?.touched) {
+          <span class="text-danger">
+            STATE is required.</span>
+          }
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label>Country</label>
+          <input formControlName="country" class="form-control" placeholder="Enter country">
+          @if (registerForm.get('country')?.invalid && registerForm.get('country')?.touched) {
+          <span class="text-danger">
+            COUNTRY is required.</span>
+          }
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label>Pincode</label>
+          <input formControlName="pincode" class="form-control" placeholder="Enter pincode">
+          @if (registerForm.get('pincode')?.invalid && registerForm.get('pincode')?.touched) {
+          <span class="text-danger">
+            PINCODE is required.</span>
+          }
+        </div>
+      </div>
+
+      <hr>
+
+      <h5>Owner Details</h5>
+      <div formArrayName="owner_details">
+        @for (owner of owner_details.controls; let i = $index; track $index) {
+        <div [formGroupName]="i" class="border p-3 mb-3 rounded">
+          <div class="row">
+            <div class="col-md-5">
+              <label>First Name</label>
+              <input formControlName="FirstName" class="form-control" placeholder="Owner name">
+              @if (owner.get('FirstName')?.invalid && owner.get('FirstName')?.touched) {
+              <span class="text-danger">
+                First Name is required.</span>
+              }
+            </div>
+            <div class="col-md-5">
+              <label>Last Name</label>
+              <input formControlName="LastName" class="form-control" placeholder="Owner name">
+              @if (owner.get('LastName')?.invalid && owner.get('LastName')?.touched) {
+              <span class="text-danger">
+                Last Name is required.</span>
+              }
+            </div>
+            <div class="col-md-5">
+              <label>Email</label>
+              <input formControlName="email" class="form-control" placeholder="Email">
+              @if (owner.get('email')?.invalid && owner.get('email')?.touched) {
+              <span class="text-danger">
+                EMAIL is required.</span>
+              }
+            </div>
+
+            <div class="col-md-6 mb-3">
+              <label>Phone Number</label>
+              <input formControlName="phoneNumber" class="form-control" placeholder="Enter phone number">
+              @if (owner.get('phoneNumber')?.invalid && owner.get('phoneNumber')?.touched) {
+              <span class="text-danger">
+                PHONENUMBER is required.</span>
+              }
+            </div>
+
+            <div class="col-md-6 mb-3">
+              <label>Location</label>
+              <input formControlName="location" class="form-control" placeholder="Enter location">
+              @if (owner.get('location')?.invalid && owner.get('location')?.touched) {
+              <span class="text-danger">
+                LOCATION is required.</span>
+              }
+            </div>
+
+            <div class="col-md-6 mb-3">
+              <label>State</label>
+              <input formControlName="state" class="form-control" placeholder="Enter state">
+              @if (owner.get('state')?.invalid && owner.get('state')?.touched) {
+              <span class="text-danger">
+                STATE is required.</span>
+              }
+            </div>
+
+            <div class="col-md-6 mb-3">
+              <label>Country</label>
+              <input formControlName="country" class="form-control" placeholder="Enter country">
+              @if (owner.get('country')?.invalid && owner.get('country')?.touched) {
+              <span class="text-danger">
+                COUNTRY is required.</span>
+              }
+            </div>
+
+            <div class="col-md-6 mb-3">
+              <label>Pincode</label>
+              <input formControlName="pincode" class="form-control" placeholder="Enter pincode">
+              @if (owner.get('pincode')?.invalid && owner.get('pincode')?.touched) {
+              <span class="text-danger">
+                PINCODE is required.</span>
+              }
+            </div>
+
+            <div class="col-md-2 d-flex align-items-end">
+              <button type="button" class="btn btn-danger w-100" (click)="removeOwner(i)"
+                *ngIf="owner_details.length > 1">Remove</button>
+            </div>
+          </div>
+        </div>
+        }
+
+        <button type="button" class="btn btn-secondary mb-3" (click)="addOwner()">+ Add Owner</button>
+      </div>
+
+      <hr>
+
+      <button type="submit" class="btn btn-primary mt-2">Submit</button>
+    </form>
+
+    <button (click)="navigate('list')">Cancel</button>
+  </div>
+</div>

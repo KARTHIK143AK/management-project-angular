@@ -1,0 +1,36 @@
+<div>
+  Listing Component Works!
+
+   <!-- @for (reg of registrations ; let i = $index; track $index) {
+     <div>
+       {{ reg.name }}
+     </div>
+   } -->
+
+  @if (registrations$ | async; as registrations) {
+    @if (registrations.length > 0) {
+      <div class="grid gap-2">
+        @for (reg of registrations; track $index) {
+          <div class="p-2 border rounded shadow-sm">
+            <h3>{{ reg.name }}</h3>
+            <ul>
+              @for (owner of reg.userDetails; track $index) {
+                <li>{{ owner.location }}, {{ owner.country }}</li>
+              }
+            </ul>
+          </div>
+        }
+      </div>
+    } @else {
+      <div>No registrations found.</div>
+    }
+  } @else {
+    <div>Loading...</div>
+  }
+
+   <!-- @for (reg of registrations$ | async; track $index) {
+    <div>{{ reg.name }}</div>
+  } -->
+
+  <button (click)="navigate('create')">Register</button>
+</div>

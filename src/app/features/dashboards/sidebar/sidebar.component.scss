@@ -1,0 +1,28 @@
+aside {
+  width: 250px;
+  height: 100%;
+  background: #2e2e3f;
+  color: #fff;
+  padding: 1rem;
+  transition: width 0.3s;
+  overflow: hidden;
+
+  &.collapsed { width: 60px; }
+
+  .toggle-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    margin-bottom: 1rem;
+    cursor: pointer;
+  }
+
+  ul { list-style: none; padding: 0; }
+
+  li a {
+    display: block;
+    padding: 0.5rem 0;
+    color: #fff;
+    text-decoration: none;
+  }
+}

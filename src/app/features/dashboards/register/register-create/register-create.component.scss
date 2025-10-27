@@ -1,0 +1,18 @@
+
+.main-wrapper {
+  display: flex;
+  // margin-top: 60px; /* space for navbar */
+  min-height: calc(100vh - 60px);
+}
+
+.content {
+  padding: 2rem;
+}
+
+.container {
+  max-width: 800px;
+}
+
+label {
+  font-weight: 500;
+}
