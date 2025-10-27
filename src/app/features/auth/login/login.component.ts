@@ -21,8 +21,6 @@ export class LoginComponent {
   constructor(private auth: AuthService, private router: Router, private authGoService: AuthGoService) {}
 
   async onSubmit() {
-    console.log('Login attempt with', this.email())
-    console.log('Password:', this.password())
     this.error.set('');
 
     this.authGoService.validateLoginDetails(this.email(),this.password()).subscribe({
